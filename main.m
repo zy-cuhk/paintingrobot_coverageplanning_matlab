@@ -39,7 +39,7 @@ zmin=0; zmax=3; interval2=0.2;m=1;
 % ymin:0, ymax:2700,x:1100,z=0,roll=0,pitch=0,yaw=0
 for i=1:1:(ymax-ymin)/interval1
     for j=1:1:(zmax-zmin)/interval2
-        renovation_manipulatorbase_points(m,1)=1.1;
+        renovation_manipulatorbase_points(m,1)=1.10;
         renovation_manipulatorbase_points(m,2)=i*interval1;
         renovation_manipulatorbase_points(m,3)=j*interval2;
         renovation_manipulatorbase_points(m,4)=0;
