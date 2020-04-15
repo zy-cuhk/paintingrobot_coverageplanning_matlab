@@ -2,7 +2,7 @@ clc,clear all,close all;
 tic;
 
 %% generating room planes of interior environment
-[house_facet,house_vertices,house_norm_vector]=house_stl_reading("202003experiment.stl");
+[house_facet,house_vertices,house_norm_vector]=house_stl_reading("202003experiment.STL");
 % house_stl_matplot(house_facet,house_vertices,house_norm_vector);
 
 [room_facet,room_vertices,room_norm_vector]=room_walls_obtaining(house_facet,house_vertices,house_norm_vector);
