@@ -36,11 +36,10 @@ room_renovation_plane_waypoints_visualization(renovation_effective_waypoints,roo
 %     end
 % end
 
+save("data.mat",'renovation_effective_waypoints','renovation_effective_waypaths');
+
 toc;
 
-
-
-% save("data.mat",'renovation_cells_waypioints_onpath','renovation_cells_manipulatorbase_positions','manipulator_endeffector_positions');
 
 
 
