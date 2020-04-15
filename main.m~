@@ -22,6 +22,8 @@ waypoints_interval=50;path_interval=100;
 
 %% selecting the required planes 
 [renovation_planes_edge_cell,renovation_manipulatorbase_planes,renovation_planes_norm_vector,renovation_effective_waypoints,renovation_effective_waypaths]=planes_selection(renovation_planes_edge_cell,renovation_manipulatorbase_planes,renovation_planes_norm_vector,room_effective_waypoints,room_effective_waypaths,panning_distance1);
+room_renovation_plane_waypoints_visualization(renovation_effective_waypoints,room_plane_edge_cell,renovation_planes_edge_cell,renovation_effective_waypaths);
+
 
 %% renovation waypaths and waypoints are clustered together again.
 % for i=1:1:size(renovation_cells_waypaths,2)
@@ -34,26 +36,18 @@ waypoints_interval=50;path_interval=100;
 %     end
 % end
 
-ymin=0; ymax=2.7; interval1=0.1;
-zmin=0; zmax=3; interval2=0.2;m=1;
+ymin=0; ymax=2700; interval=50;
 % ymin:0, ymax:2700,x:1100,z=0,roll=0,pitch=0,yaw=0
-for i=1:1:(ymax-ymin)/interval1
-    for j=1:1:(zmax-zmin)/interval2
-        renovation_manipulatorbase_points(m,1)=1.1;
-        renovation_manipulatorbase_points(m,2)=i*interval1;
-        renovation_manipulatorbase_points(m,3)=j*interval2;
-        renovation_manipulatorbase_points(m,4)=0;
-        renovation_manipulatorbase_points(m,5)=0;
-        renovation_manipulatorbase_points(m,6)=0;
-        m=m+1;
-    end
+for i=1:1:(ymax-ymin)/interval
+    renovation_manipulatorbase_points(i,1)=
+    renovation_manipulatorbase_points(i,2)=
+    renovation_manipulatorbase_points(i,3)=
+    renovation_manipulatorbase_points(i,4)=0;
+    renovation_manipulatorbase_points(i,5)=0;
+    renovation_manipulatorbase_points(i,6)=0;
 end
 
-room_renovation_plane_waypoints_visualization(renovation_manipulatorbase_points,renovation_effective_waypoints,room_plane_edge_cell,renovation_planes_edge_cell,renovation_effective_waypaths);
-
-
-save("data.mat",'renovation_effective_waypoints','renovation_effective_waypaths','renovation_manipulatorbase_points');
-
+save("data.mat",'renovation_effective_waypoints','renovation_effective_waypaths');
 
 toc;
 

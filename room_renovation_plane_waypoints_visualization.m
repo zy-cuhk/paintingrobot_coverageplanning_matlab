@@ -1,4 +1,4 @@
-function room_renovation_plane_waypoints_visualization(renovation_effective_waypoints,room_plane_edge_cell,renovation_planes_edge_cell,renovation_effective_waypaths)
+function room_renovation_plane_waypoints_visualization(renovation_manipulatorbase_points,renovation_effective_waypoints,room_plane_edge_cell,renovation_planes_edge_cell,renovation_effective_waypaths)
 figure;
 for i=1:1:size(renovation_planes_edge_cell,2)
     for j=1:1:size(renovation_planes_edge_cell{i},1)
@@ -33,23 +33,29 @@ for i=1:1:size(room_plane_edge_cell,2)
     end
 end
 hold on;
-for i=1:1:size(renovation_effective_waypoints,2)
-    x=renovation_effective_waypoints{i}(:,1);
-    y=renovation_effective_waypoints{i}(:,2);
-    z=renovation_effective_waypoints{i}(:,3);
+% for i=1:1:size(renovation_effective_waypoints,2)
+    x=renovation_effective_waypoints(:,1);
+    y=renovation_effective_waypoints(:,2);
+    z=renovation_effective_waypoints(:,3);
     scatter3(x,y,z);
     hold on;
-end
+% end
 hold on;
-for i=1:1:size(renovation_effective_waypaths,2)
-    for j=1:1:size(renovation_effective_waypaths{i},1)
-        x1=[renovation_effective_waypaths{i}(j,1),renovation_effective_waypaths{i}(j,4)];
-        y1=[renovation_effective_waypaths{i}(j,2),renovation_effective_waypaths{i}(j,5)];
-        z1=[renovation_effective_waypaths{i}(j,3),renovation_effective_waypaths{i}(j,6)];
+% for i=1:1:size(renovation_effective_waypaths,2)
+    for j=1:1:size(renovation_effective_waypaths,1)
+        x1=[renovation_effective_waypaths(j,1),renovation_effective_waypaths(j,4)];
+        y1=[renovation_effective_waypaths(j,2),renovation_effective_waypaths(j,5)];
+        z1=[renovation_effective_waypaths(j,3),renovation_effective_waypaths(j,6)];
         plot3(x1,y1,z1,'b','LineWidth',1);
         hold on;
     end
-end
+% end
+hold on;
+x=renovation_manipulatorbase_points(:,1);
+y=renovation_manipulatorbase_points(:,2);
+z=renovation_manipulatorbase_points(:,3);
+scatter3(x,y,z);
+hold on;
 axis equal;
 end
 
